@@ -236,7 +236,7 @@ $(intermediate_system_build_prop): PRIVATE_BUILD_DESC := $(build_desc)
 # The string used to uniquely identify the combined build and product; used by the OTA server.
 ifeq (,$(strip $(BUILD_FINGERPRINT)))
   ifeq ($(strip $(HAS_BUILD_NUMBER)),false)
-    BF_BUILD_NUMBER := $(USER)$$($(DATE_FROM_FILE) +%m%d%H%M)
+    BF_BUILD_NUMBER := $(KBUILD_BUILD_USER)$$($(DATE_FROM_FILE) +%m%d%H%M)
   else
     BF_BUILD_NUMBER := $(file <$(BUILD_NUMBER_FILE))
   endif
